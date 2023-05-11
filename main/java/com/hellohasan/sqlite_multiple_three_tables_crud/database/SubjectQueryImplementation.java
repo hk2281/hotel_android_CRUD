@@ -62,7 +62,7 @@ public class SubjectQueryImplementation implements QueryContract.SubjectQuery {
 
                 response.onSuccess(subjectList);
             } else
-                response.onFailure("There are no subject in database");
+                response.onFailure("There are no rooms in database");
 
         } catch (Exception e){
             response.onFailure(e.getMessage());

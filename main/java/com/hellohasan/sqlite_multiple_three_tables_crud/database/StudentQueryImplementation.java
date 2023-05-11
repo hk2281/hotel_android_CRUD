@@ -82,7 +82,7 @@ public class StudentQueryImplementation implements QueryContract.StudentQuery {
 
                 response.onSuccess(studentList);
             } else
-                response.onFailure("There are no student in database");
+                response.onFailure("There are no guests in database");
 
         } catch (Exception e){
             response.onFailure(e.getMessage());

@@ -87,7 +87,7 @@ public class SubjectListAdapter extends RecyclerView.Adapter<SubjectViewHolder> 
                             @Override
                             public void onSuccess(Boolean data) {
                                 listener.onSubjectListUpdate(data);
-                                Toast.makeText(context, "Subject is deleted successfully", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, "Room is deleted successfully", Toast.LENGTH_SHORT).show();
                             }
 
                             @Override

@@ -71,7 +71,7 @@ public class SubjectCreateDialogFragment extends DialogFragment {
                     public void onSuccess(Boolean data) {
                         getDialog().dismiss();
                         subjectCrudListener.onSubjectListUpdate(true);
-                        Toast.makeText(getContext(), "Subject created successfully", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getContext(), "Room created successfully", Toast.LENGTH_LONG).show();
                     }
 
                     @Override

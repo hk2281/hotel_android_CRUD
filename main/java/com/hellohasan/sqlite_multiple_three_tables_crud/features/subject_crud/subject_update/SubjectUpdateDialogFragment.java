@@ -80,7 +80,7 @@ public class SubjectUpdateDialogFragment extends DialogFragment {
                     public void onSuccess(Boolean data) {
                         getDialog().dismiss();
                         subjectCrudListener.onSubjectListUpdate(data);
-                        Toast.makeText(getContext(), "Subject updated successfully", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getContext(), "Room updated successfully", Toast.LENGTH_LONG).show();
                     }
 
                     @Override

@@ -64,7 +64,7 @@ public class TakenSubjectQueryImplementation implements QueryContract.TakenSubje
 
                 response.onSuccess(subjectList);
             } else
-                response.onFailure("There are no subject assigned to this student");
+                response.onFailure("There are no room assigned to this guest");
 
         } catch (Exception e){
             response.onFailure(e.getMessage());
@@ -108,7 +108,7 @@ public class TakenSubjectQueryImplementation implements QueryContract.TakenSubje
 
                 response.onSuccess(takenSubjectList);
             } else
-                response.onFailure("There are no subject assigned to this student");
+                response.onFailure("There are no room assigned to this guest");
 
         } catch (Exception e){
             response.onFailure(e.getMessage());

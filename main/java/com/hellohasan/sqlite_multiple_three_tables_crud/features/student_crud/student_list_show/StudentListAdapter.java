@@ -97,7 +97,7 @@ public class StudentListAdapter extends RecyclerView.Adapter<StudentViewHolder> 
                             @Override
                             public void onSuccess(Boolean data) {
                                 if(data) {
-                                    Toast.makeText(context, "Student deleted successfully", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(context, "Guest deleted successfully", Toast.LENGTH_SHORT).show();
                                     listener.onStudentListUpdate(true);
                                 }
                             }

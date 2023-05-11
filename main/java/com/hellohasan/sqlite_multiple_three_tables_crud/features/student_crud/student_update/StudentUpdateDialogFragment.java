@@ -90,7 +90,7 @@ public class StudentUpdateDialogFragment extends DialogFragment {
                     public void onSuccess(Boolean data) {
                         getDialog().dismiss();
                         studentCrudListener.onStudentListUpdate(data);
-                        Toast.makeText(getContext(), "Student updated successfully", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getContext(), "Guest updated successfully", Toast.LENGTH_LONG).show();
                     }
 
                     @Override
