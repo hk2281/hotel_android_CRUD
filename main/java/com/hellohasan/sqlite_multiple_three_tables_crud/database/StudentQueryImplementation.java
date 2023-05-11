@@ -30,7 +30,7 @@ public class StudentQueryImplementation implements QueryContract.StudentQuery {
                 student.setId((int) id);
             }
             else
-                response.onFailure("Failed to create student. Unknown Reason!");
+                response.onFailure("Failed to create guest. Unknown Reason!");
         } catch (SQLiteException e){
             response.onFailure(e.getMessage());
         } finally {

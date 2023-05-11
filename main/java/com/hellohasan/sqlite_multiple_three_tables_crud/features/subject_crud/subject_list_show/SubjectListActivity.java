@@ -52,7 +52,7 @@ public class SubjectListActivity extends AppCompatActivity implements SubjectCru
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SubjectCreateDialogFragment dialogFragment = SubjectCreateDialogFragment.newInstance("Create Subject", SubjectListActivity.this);
+                SubjectCreateDialogFragment dialogFragment = SubjectCreateDialogFragment.newInstance("Create Room", SubjectListActivity.this);
                 dialogFragment.show(getSupportFragmentManager(), CREATE_SUBJECT);
 
             }

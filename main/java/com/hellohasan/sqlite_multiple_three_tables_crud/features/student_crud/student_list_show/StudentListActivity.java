@@ -53,7 +53,7 @@ public class StudentListActivity extends AppCompatActivity implements StudentCru
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                StudentCreateDialogFragment studentCreateDialogFragment = StudentCreateDialogFragment.newInstance("Create Student", StudentListActivity.this);
+                StudentCreateDialogFragment studentCreateDialogFragment = StudentCreateDialogFragment.newInstance("Create Guest", StudentListActivity.this);
                 studentCreateDialogFragment.show(getSupportFragmentManager(), Constants.CREATE_STUDENT);
             }
         });
