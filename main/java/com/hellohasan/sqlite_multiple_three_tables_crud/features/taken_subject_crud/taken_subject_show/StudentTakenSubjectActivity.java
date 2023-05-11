@@ -31,6 +31,7 @@ public class StudentTakenSubjectActivity extends AppCompatActivity implements Ta
     private TextView registrationNumTextView;
     private TextView emailTextView;
     private TextView phoneTextView;
+    private TextView totalSumTextView;
     private ImageView actionAddSubject;
 
     private RecyclerView recyclerView;
@@ -117,10 +118,10 @@ public class StudentTakenSubjectActivity extends AppCompatActivity implements Ta
                 for (Subject subject : data) {
                     totalCredits += subject.getCredit();
                 }
-                Log.d("tag", String.valueOf(totalCredits));
                 takenSubjectList.clear();
                 takenSubjectList.addAll(data);
                 adapter.notifyDataSetChanged();
+                totalSumTextView.setText(String.valueOf(totalCredits));
             }
 
             @Override
@@ -157,6 +158,7 @@ public class StudentTakenSubjectActivity extends AppCompatActivity implements Ta
         registrationNumTextView = findViewById(R.id.registrationNumTextView);
         emailTextView = findViewById(R.id.emailTextView);
         phoneTextView = findViewById(R.id.phoneTextView);
+        totalSumTextView = findViewById(R.id.totalSumView);
         actionAddSubject = findViewById(R.id.action_add_subject);
 
         recyclerView = findViewById(R.id.recyclerView);
