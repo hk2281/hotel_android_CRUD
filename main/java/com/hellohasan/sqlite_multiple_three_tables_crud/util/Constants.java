@@ -10,6 +10,8 @@ public class Constants {
     public static final String STUDENT_PHONE = "phone";
     public static final String STUDENT_EMAIL = "email";
 
+    public static final String STUDENT_TOTALSUM = "totalsum";
+
     //column names of subject table
     public static final String TABLE_SUBJECT = "subject";
     public static final String SUBJECT_ID = "_id";

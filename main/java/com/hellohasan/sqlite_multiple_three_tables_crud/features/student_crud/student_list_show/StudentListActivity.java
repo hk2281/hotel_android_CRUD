@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
+
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -63,6 +65,17 @@ public class StudentListActivity extends AppCompatActivity implements StudentCru
     protected void onResume() {
         super.onResume();
         showTableRowCount();
+        Log.d("tag", "test");
+        setContentView(R.layout.activity_student_list);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        initialization();
+
+        adapter = new StudentListAdapter(this, studentList, this);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        recyclerView.setAdapter(adapter);
+
+        showStudentList();
     }
 
     @Override

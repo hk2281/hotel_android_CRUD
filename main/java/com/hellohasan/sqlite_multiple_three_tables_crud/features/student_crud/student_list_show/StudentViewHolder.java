@@ -13,6 +13,8 @@ class StudentViewHolder extends RecyclerView.ViewHolder {
     TextView registrationNumTextView;
     TextView emailTextView;
     TextView phoneTextView;
+
+    TextView totalSumView;
     ImageView editImageView;
     ImageView deleteImageView;
 
@@ -24,5 +26,6 @@ class StudentViewHolder extends RecyclerView.ViewHolder {
         phoneTextView = itemView.findViewById(R.id.phoneTextView);
         editImageView = itemView.findViewById(R.id.editImageView);
         deleteImageView = itemView.findViewById(R.id.deleteImageView);
+        totalSumView = itemView.findViewById(R.id.totalSumView);
     }
 }

@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.hellohasan.sqlite_multiple_three_tables_crud.util.Constants.*;
+import static java.security.AccessController.getContext;
 
 public class StudentTakenSubjectActivity extends AppCompatActivity implements TakenSubjectCrudListener {
 
@@ -43,6 +44,10 @@ public class StudentTakenSubjectActivity extends AppCompatActivity implements Ta
     private int studentId;
     private List<Subject> takenSubjectList = new ArrayList<>();
     private TakenSubjectListAdapter adapter;
+
+    private double totalCredits = 10;
+
+    private Student currentStudent;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +103,8 @@ public class StudentTakenSubjectActivity extends AppCompatActivity implements Ta
                 registrationNumTextView.setText(String.valueOf(student.getRegistrationNumber()));
                 emailTextView.setText(student.getEmail());
                 phoneTextView.setText(student.getPhone());
+                currentStudent = student;
+
             }
 
             @Override
@@ -108,20 +115,39 @@ public class StudentTakenSubjectActivity extends AppCompatActivity implements Ta
     }
 
     private void showTakenSubjectList() {
+
+
         QueryContract.TakenSubjectQuery query = new TakenSubjectQueryImplementation();
         query.readAllTakenSubjectByStudentId(studentId, new QueryResponse<List<Subject>>() {
             @Override
             public void onSuccess(List<Subject> data) {
                 recyclerView.setVisibility(View.VISIBLE);
                 noDataFoundTextView.setVisibility(View.GONE);
-                double totalCredits = 0.0;
+                QueryContract.StudentQuery studentQuery = new StudentQueryImplementation();
+
+                Log.d("tag","takenStudent2");
+                totalCredits = 0.0;
                 for (Subject subject : data) {
                     totalCredits += subject.getCredit();
                 }
-                takenSubjectList.clear();
+                currentStudent.setTotalSum(String.valueOf(totalCredits));
+                Log.d("tag", currentStudent.getTotalSum());
+                studentQuery.updateStudent(currentStudent, new QueryResponse<Boolean>() {
+                            @Override
+                            public void onSuccess(Boolean data) {
+                                Log.d("tag",String.valueOf(currentStudent.getId()));
+                            }
+
+                            @Override
+                            public void onFailure(String message) {
+                                Log.d("tag",message);
+                            }
+                        });
+                        takenSubjectList.clear();
                 takenSubjectList.addAll(data);
-                adapter.notifyDataSetChanged();
                 totalSumTextView.setText(String.valueOf(totalCredits));
+                adapter.notifyDataSetChanged();
+
             }
 
             @Override

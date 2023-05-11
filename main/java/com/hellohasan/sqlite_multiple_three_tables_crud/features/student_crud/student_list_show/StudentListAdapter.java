@@ -6,9 +6,12 @@ import android.content.Intent;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hellohasan.sqlite_multiple_three_tables_crud.R;
@@ -22,11 +25,15 @@ import java.util.List;
 
 import static com.hellohasan.sqlite_multiple_three_tables_crud.util.Constants.*;
 
+import org.w3c.dom.Text;
+
 public class StudentListAdapter extends RecyclerView.Adapter<StudentViewHolder> {
 
     private Context context;
     private List<Student> studentList;
     private StudentCrudListener listener;
+
+    private TextView totalsum;
 
     StudentListAdapter(Context context, List<Student> studentList, StudentCrudListener listener) {
         this.context = context;
@@ -44,11 +51,24 @@ public class StudentListAdapter extends RecyclerView.Adapter<StudentViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull StudentViewHolder holder, int position) {
         final Student student = studentList.get(position);
+        StudentQueryImplementation getStu = new StudentQueryImplementation();
+        getStu.readStudent(student.getId(), new QueryResponse<Student>() {
+                    @Override
+                    public void onSuccess(Student data) {
+                        Log.d("tag",String.valueOf(data.getTotalSum()));
+                    }
 
-        holder.nameTextView.setText(student.getName());
+                    @Override
+                    public void onFailure(String message) {
+                        Log.d("tag", message);
+                    }
+                });
+                holder.nameTextView.setText(student.getName());
         holder.registrationNumTextView.setText(String.valueOf(student.getRegistrationNumber()));
         holder.emailTextView.setText(student.getEmail());
         holder.phoneTextView.setText(student.getPhone());
+        holder.totalSumView.setText(student.getTotalSum());
+
 
         holder.editImageView.setOnClickListener(new View.OnClickListener() {
             @Override

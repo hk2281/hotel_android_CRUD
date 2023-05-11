@@ -38,7 +38,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + STUDENT_NAME + " TEXT NOT NULL, "
                 + STUDENT_REGISTRATION_NUM + " INTEGER NOT NULL UNIQUE, "
                 + STUDENT_PHONE + " TEXT, " //nullable
-                + STUDENT_EMAIL + " TEXT " //nullable
+                + STUDENT_EMAIL + " TEXT, " //nullable
+                + STUDENT_TOTALSUM + " TEXT "
                 + ")";
 
         String CREATE_SUBJECT_TABLE = "CREATE TABLE " + TABLE_SUBJECT + "("

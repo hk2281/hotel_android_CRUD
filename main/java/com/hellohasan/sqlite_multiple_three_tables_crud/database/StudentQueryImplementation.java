@@ -141,6 +141,7 @@ public class StudentQueryImplementation implements QueryContract.StudentQuery {
         contentValues.put(STUDENT_REGISTRATION_NUM, student.getRegistrationNumber());
         contentValues.put(STUDENT_PHONE, student.getPhone());
         contentValues.put(STUDENT_EMAIL, student.getEmail());
+        contentValues.put(STUDENT_TOTALSUM,student.getTotalSum());
 
         return contentValues;
     }
@@ -151,7 +152,8 @@ public class StudentQueryImplementation implements QueryContract.StudentQuery {
         int regNum = cursor.getInt(cursor.getColumnIndex(STUDENT_REGISTRATION_NUM));
         String phone = cursor.getString(cursor.getColumnIndex(STUDENT_PHONE));
         String email = cursor.getString(cursor.getColumnIndex(STUDENT_EMAIL));
+        String totalSum = cursor.getString(cursor.getColumnIndex(STUDENT_TOTALSUM));
 
-        return new Student(id, name, regNum, phone, email);
+        return new Student(id, name, regNum, phone, email,totalSum);
     }
 }
