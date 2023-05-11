@@ -2,6 +2,7 @@ package com.hellohasan.sqlite_multiple_three_tables_crud.database;
 
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.hellohasan.sqlite_multiple_three_tables_crud.model.TableRowCount;
 
@@ -15,6 +16,7 @@ public class TableRowCountQueryImplementation implements QueryContract.TableRowC
         SQLiteDatabase sqLiteDatabase = databaseHelper.getReadableDatabase();
 
         try {
+            Log.d("tag","tablerowquery");
             long studentCount = DatabaseUtils.queryNumEntries(sqLiteDatabase, TABLE_STUDENT);
             long subjectCount = DatabaseUtils.queryNumEntries(sqLiteDatabase, TABLE_SUBJECT);
             long takenSubjectCount = DatabaseUtils.queryNumEntries(sqLiteDatabase, TABLE_STUDENT_SUBJECT);

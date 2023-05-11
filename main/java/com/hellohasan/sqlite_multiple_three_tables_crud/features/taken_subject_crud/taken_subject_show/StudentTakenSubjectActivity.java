@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -90,6 +92,7 @@ public class StudentTakenSubjectActivity extends AppCompatActivity implements Ta
         query.readStudent(studentId, new QueryResponse<Student>() {
             @Override
             public void onSuccess(Student student) {
+                Log.d("tag","takenStudent");
                 nameTextView.setText(student.getName());
                 registrationNumTextView.setText(String.valueOf(student.getRegistrationNumber()));
                 emailTextView.setText(student.getEmail());
@@ -110,7 +113,11 @@ public class StudentTakenSubjectActivity extends AppCompatActivity implements Ta
             public void onSuccess(List<Subject> data) {
                 recyclerView.setVisibility(View.VISIBLE);
                 noDataFoundTextView.setVisibility(View.GONE);
-
+                double totalCredits = 0.0;
+                for (Subject subject : data) {
+                    totalCredits += subject.getCredit();
+                }
+                Log.d("tag", String.valueOf(totalCredits));
                 takenSubjectList.clear();
                 takenSubjectList.addAll(data);
                 adapter.notifyDataSetChanged();

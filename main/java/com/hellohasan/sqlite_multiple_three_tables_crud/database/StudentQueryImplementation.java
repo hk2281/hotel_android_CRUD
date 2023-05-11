@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
+import android.util.Log;
 
 import com.hellohasan.sqlite_multiple_three_tables_crud.model.Student;
 
@@ -72,6 +73,7 @@ public class StudentQueryImplementation implements QueryContract.StudentQuery {
 
         Cursor cursor = null;
         try {
+            Log.d("tag", "hi");
             cursor = sqLiteDatabase.query(TABLE_STUDENT, null, null, null, null, null, null);
 
             if(cursor!=null && cursor.moveToFirst()){
