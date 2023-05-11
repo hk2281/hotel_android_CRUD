@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hotel resection</string>
+    <string name="app_name">Hotel reseption</string>
     <string name="action_add_subject">Add Rooms</string>
     <string name="course_code">Room Code: %d</string>
     <string name="course_credit">Room Credit: %.2f</string>
@@ -36,7 +36,7 @@
     <string name="update_button">Update</string>
     <string name="table_row_count_failed">Table row count failed</string>
     <string name="taken_subject_by_student">Taken room by guest</string>
-    <string name="student_and_taken_subject"><![CDATA[Student Info & Taken Subject]]></string>
+    <string name="student_and_taken_subject"><![CDATA[Guest Info & Taken rooms]]></string>
     <string name="no_subject">This guest haven\'t taken any room</string>
     <string name="subject_assign">Room Assign to guest</string>
     <string name="close">Close</string>
