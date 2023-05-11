@@ -64,7 +64,7 @@ public class StudentListActivity extends AppCompatActivity implements StudentCru
     @Override
     protected void onResume() {
         super.onResume();
-        showTableRowCount();
+
         Log.d("tag", "test");
         setContentView(R.layout.activity_student_list);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -76,6 +76,7 @@ public class StudentListActivity extends AppCompatActivity implements StudentCru
         recyclerView.setAdapter(adapter);
 
         showStudentList();
+        showTableRowCount();
     }
 
     @Override
