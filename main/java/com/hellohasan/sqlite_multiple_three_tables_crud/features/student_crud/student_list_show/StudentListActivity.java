@@ -77,6 +77,15 @@ public class StudentListActivity extends AppCompatActivity implements StudentCru
 
         showStudentList();
         showTableRowCount();
+
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                StudentCreateDialogFragment studentCreateDialogFragment = StudentCreateDialogFragment.newInstance("Create Guest", StudentListActivity.this);
+                studentCreateDialogFragment.show(getSupportFragmentManager(), Constants.CREATE_STUDENT);
+            }
+        });
     }
 
     @Override
